@@ -1,0 +1,20 @@
+apiVersion: v1
+entries:
+  elasticsearch:
+  - apiVersion: v1
+    appVersion: 7.6.2
+    created: "2020-04-20T10:04:57.235746893+01:00"
+    description: Fork of Elastic helm chart for Elasticsearch
+    digest: 594f824de61b909df75fc5acfdde152319bedf07c325d0e847203d8ac38cd46d
+    home: https://github.com/michelesr/helm-repo
+    icon: https://helm.elastic.co/icons/elasticsearch.png
+    maintainers:
+    - email: michelesr@autistici.org
+      name: Michele
+    name: elasticsearch
+    sources:
+    - https://github.com/elastic/elasticsearch
+    urls:
+    - elasticsearch-7.6.2.tgz
+    version: 7.6.2
+generated: "2020-04-20T10:04:57.233988877+01:00"

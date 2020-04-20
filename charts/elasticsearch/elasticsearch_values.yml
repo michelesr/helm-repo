@@ -1,0 +1,43 @@
+---
+# Permit co-located instances for solitary minikube virtual machines.
+antiAffinity: "soft"
+
+# Shrink default JVM heap.
+esJavaOpts: "-Xmx128m -Xms128m"
+
+replicas: 1
+minimumMasterNodes: 1
+
+esMajorVersion: -1
+
+esConfig:
+  elasticsearch.yml: |
+      discovery.type: single-node
+      xpack.security.enabled: false
+
+image: docker.elastic.co/elasticsearch/elasticsearch
+imageTag: 6.2.4
+imagePullPolicy: IfNotPresent
+
+# Elasticsearch roles that will be applied to this nodeGroup
+# These will be set as environment variables. E.g. node.master=true
+roles:
+  master: "true"
+  ingest: "true"
+  data: "true"
+
+# Allocate smaller chunks of memory per pod.
+resources:
+  requests:
+    cpu: "100m"
+    memory: "384Mi"
+  limits:
+    cpu: "1000m"
+    memory: "512Mi"
+
+# Request smaller persistent volumes.
+volumeClaimTemplate:
+  accessModes: [ "ReadWriteOnce" ]
+  resources:
+    requests:
+      storage: 100M
